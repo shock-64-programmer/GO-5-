@@ -1,0 +1,34 @@
+package main
+
+import "fmt"
+
+type MyStruct struct {
+	id    int
+	name  string
+	Value int
+}
+
+func (ms *MyStruct) Name() string {
+	return ms.name
+}
+
+func (ms *MyStruct) Id() int {
+	return ms.id
+}
+
+func (ms *MyStruct) ChangeValue(newValue int) {
+	ms.Value = newValue
+}
+
+func NewMyStruct(name string, id int) *MyStruct {
+	return &MyStruct{id: id, name: name}
+}
+
+func main() {
+	ms := NewMyStruct("John", 123)
+	fmt.Println("Name:", ms.Name())
+	fmt.Println("ID:", ms.Id())
+	fmt.Println("Value:", ms.Value)
+	ms.ChangeValue(456)
+	fmt.Println("New Value:", ms.Value)
+}
